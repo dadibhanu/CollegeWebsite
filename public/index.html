@@ -1,0 +1,637 @@
+<html>
+<head>
+  <title>SITAM</title>
+  <style>
+    body {
+background-color: rgb(111, 0, 255);
+}
+
+input, button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.main-div, .loggedin-div {
+  margin-top: 5%;
+  width: 50%;
+  padding: 20px;
+  display: none;
+  color: white;
+  font-size: 30px;
+  border-radius: 10px;
+  margin-left: 25%;
+}
+
+
+.main-div input {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  padding: 30px;
+  outline: none;
+  width: 100%;
+  height: 4%;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.main-div input:focus {
+  border: 1px solid #777;
+}
+
+.main-div button, .loggedin-div button {
+  background: #5d8ffc;
+  color: #fff;
+  border: 1px solid #5d8ffc;
+  border-radius: 5px;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.main-div button:hover, .loggedin-div button:hover {
+  background: #fff;
+  color: #5d8ffc;
+  border: 1px solid #5d8ffc;
+  cursor: pointer;
+}
+
+.main-div h3{
+  letter-spacing: 5px;
+  font-size: 40px;
+}
+
+input.check
+{
+  width: 40px;
+  height: 40px;
+}
+
+ul{
+  list-style-type: none;
+  background-color: #000060;
+  overflow: hidden;
+  padding:8px;
+  margin: 0;
+  margin-right: 1%;
+  border-radius: 12px;
+  margin-left: 2%;
+  }
+
+  li {
+    padding-left: 1%;
+    float: left;
+    }
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  padding-left: 75px;
+  text-decoration: none;
+  font-size: 35px;
+}
+
+li a:hover {
+  background-color: black;
+}
+
+h1{
+    letter-spacing: 20px;
+    text-align: center;
+    font-size: 60px;
+}
+.logo{
+  margin-left: 0%;
+  width: 100%;
+}
+.hban{
+  width: 350px;
+  height: 350px;
+  margin-left:70%;
+  margin-top: auto;
+  
+}
+#welcome{
+  text-align: right;
+  font-size: 30px;
+  width: 40px;
+  margin-left: 2%;
+  font-weight: bold;
+}
+.c{
+width: 1080px;
+margin-left:auto;
+margin-right:auto;
+} 
+.himg{
+  width:600px;
+  height: 600px;
+  margin-left: 20%;
+}
+#Home{
+  display: block;
+}
+#Branch{
+  display: none;
+}
+#Notice{
+  display: none;
+}
+#Fee{
+  display: none;
+}
+#Location{
+  display: none;
+}
+#cse{
+  display: block;
+}
+#ece{
+  display: none;
+}
+#eee{
+  display: none;
+}
+#mech{
+  display: none;
+}
+#civil{
+  display: none;
+}
+#web{
+  display: none;
+}
+.h_logout{
+  background: #000060;
+  color: #fff;
+  border: 1px solid #000060;
+  border-radius: 5px;
+  padding: 15px;
+  display: block;
+  width: 10%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  float: right;
+  -moz-transition: 0.3s;
+  margin-right: 2%;
+}
+
+.search input{
+width: 50%;
+margin-left:25%;
+padding:10px;
+font-size: 30px;
+}
+.search button{
+  padding: 10px;
+  font-size: 30px;
+  background-color: #000060;
+  color: #fff;
+  border: none;
+}
+.search button:hover{
+  background-color: #777;
+  color: #000060;
+}
+#pro {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#pro td, #pro th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 30px;
+}
+
+#pro tr:nth-child(even){background-color: #f2f2f2;}
+
+#pro th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #000060;
+  color: white;
+}
+#detail{
+  background-color: #000060;
+  color: #fff;
+}
+#_branch_{
+  width: 50%;
+margin-left:25%;
+padding:10px;
+font-size: 30px;
+}
+.fee_sec{
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+  </style>
+</head>
+<body id="Body">
+  <div class="c">
+  <div id="login_div" class="main-div">
+    <h3>Log In</h3>
+    <input type="email" placeholder="Email..." id="email_field" /><br>
+    <input type="password" placeholder="Password..." id="password_field" /><br>
+    <input type="checkbox" onclick="myFunction()" class="check">Show Password
+
+    <button onclick="login()">Login to Account</button>
+    <h4>Don't Have Account ? Create one</h4>
+     <button onclick="changesign()">Create New Account</button>
+  </div>
+
+  <div id="signup_div" class="main-div">
+    <h3>Sign Up</h3>
+    <input type="email" placeholder="Email..." id="email" /><br>
+    <input type="password" placeholder="Password..." id="password" /><br>
+    <input type="checkbox" onclick="myFunction()" class="check">Show Password
+
+    <button onclick="signup()">Signup to Account</button><br><br>
+    <button onclick="changelog()">Login</button><br><br>
+  </div>
+
+  <div id="user_div" class="loggedin-div">
+    <h3>Welcome User</h3>
+    <p id="user_para"></p>
+    <button onclick="logout()">Logout</button><br>
+    <button onclick="send_Verification()" id="verify">send verification</button>
+  </div>
+    <div id="web">
+    <div class = "logo">
+        <img src="https://sitam.co.in/images/gvplogo.jpg" class ="logo"><br><br><span id="welcome"></span><button onclick="logout()" class="h_logout">logout</button><br><br><Br>
+    </div><!--div of logo-->
+        <ul>
+        <li><a href="#Home" onclick="home()">Home</a></li>
+        <li><a href="#Branch" onclick="branch()">Branch</a></li>
+        <li><a href="#Notice" onclick="notice()">Notice</a></li>
+        <li><a href="#Fee" onclick="fee()">Fee</a></li>
+        <li><a href="#Location" onclick="lo_c()">Location</a></li>
+    </ul><br><br>
+    <div id="Home">
+    <img src ="https://sitam.co.in/images/adm2021.jpeg" class="himg">
+  </div><!--div of home-->
+  <div id ="Branch">
+    <ul>
+      <li><a href="#CSE" onclick="cse()">CSE</a></li>
+      <li><a href="#CIVIL" onclick="civil()">CIVIL</a></li>
+      <li><a href="#MECH" onclick="mech()">MECH</a></li>
+      <li><a href="#EEE" onclick="eee()">EEE</a></li>
+      <li><a href="#ECE" onclick="ece()">ECE</a></li>
+    </ul>
+    <br>
+    <div id="cse">
+<h1>Welcome To CSE</h1>
+    </div><!--div of cse-->
+    <div id="civil">
+      <h1>Welcome To CIVIL</h1>
+    </div><!--div of civil-->
+    <div id="mech">
+      <h1>Welcome To MECH</h1>
+    </div><!--div of mech-->
+    <div id="eee">
+      <h1>Welcome To EEE</h1>
+    </div><!--div of eee-->
+    <div id="ece">
+      <h1>Welcome To ECE</h1>
+    </div><!--div of ece-->
+    <table id="pro">
+      <thead>
+        <tbody id="detail">
+          <tr>
+            <td>Roll Number</td>
+            <td>Students</td>
+            <td>Gender</td>
+            <td>Branch</td>
+          </tr>
+        </tbody>
+        <tbody id= "tbody1">
+      
+        </tbody>
+      </thead>
+      </table>
+  </div><!--div of Branch-->
+  <div id="Notice">
+<h1>Notice Board</h1>
+  </div><!--div of notice-->
+  <div id="Fee">
+<h1>Fee section</h1>
+<div class="search">
+  <select  id="_branch_">
+    <option value="cse">CSE</option>
+    <option value="ece">ECE</option>
+    <option value="eee">EEE</option>
+    <option value="mech">MECH</option>
+    <option value="civil">CIVIL</option>
+  </select><br><br>
+  <input type="text" id="sec">
+  <br><br>
+  <button onclick="search()">search
+ </button>
+ <br>
+ <br><Br>
+<div class="fee_sec">
+  Total:
+  <span id="Total"></span><br><br>
+  1st Year Fee Due:
+  <span id="_1st"></span><br><br>
+  2nd Year Fee Due:
+  <span id="_2nd"></span><br><br>
+  3rd Year Fee Due:
+  <span id="_3rd"></span><br><br>
+  4th Year Fee Due:
+  <span id="_4th"></span><br><br>
+</div>
+ </div>
+  </div><!--div of fee-->
+  <div id="Location">
+<h1>Location of College</h1>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4508.965435264706!2d83.39171213445893!3d18.13750543972007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3bef902595ad49%3A0xc8014da742471a0e!2sSatya%20Institute%20of%20Technology%20and%20Management!5e0!3m2!1sen!2sin!4v1642154089853!5m2!1sen!2sin" width="100%" height="50%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div><!--div of location-->
+</div><!--div of web-->
+  </div><!--div of c-->
+</body>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0YotXm5aGKkju4bDh53lR6jXtM64a4jQ",
+  authDomain: "college-web-83e08.firebaseapp.com",
+  databaseURL: "https://college-web-83e08-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "college-web-83e08",
+  storageBucket: "college-web-83e08.appspot.com",
+  messagingSenderId: "904405544727",
+  appId: "1:904405544727:web:335fb2e81de3f976b21152",
+  measurementId: "G-QG5M39JLF9"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script>
+    firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+
+    document.getElementById("user_div").style.display = "block";
+    document.getElementById("login_div").style.display = "none";
+
+    var user = firebase.auth().currentUser;
+
+    if(user != null){
+
+      var email_id = user.email;
+      var email_verified = user.emailVerified;
+      if(email_verified)
+      {
+        document.getElementById("user_div").style.display="none";
+        document.getElementById("web").style.display = "block";
+        document.body.style.background ="white";
+        document.getElementById("welcome").innerHTML = email_id;
+      }
+      document.getElementById("user_para").innerHTML = "Welcome User : " + email_id+
+      "<br> Verification : " + email_verified;
+
+    }
+
+  } else {
+    // No user is signed in.
+
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("login_div").style.display = "block";
+
+  }
+});
+function addItemsToList(name, gen, depar,roll) {
+        var trow = document.createElement('tr');
+        var _roll = document.createElement("td");
+        var _name = document.createElement('td');
+        var _gen = document.createElement('td');
+        var _dep = document.createElement('td');
+
+        _roll.innerHTML = roll;
+        _name.innerHTML =  name;
+        _gen.innerHTML = gen;
+        _dep.innerHTML = depar;
+
+        trow.appendChild(_roll);
+        trow.appendChild(_name);
+        trow.appendChild(_gen);
+        trow.appendChild(_dep);
+        tbody1.append(trow);
+    }
+    var x = 2;
+    function removeDiv()
+    {
+        x=x-1;
+        if(x<=0)
+        {
+        var eDiv = document.getElementById("tbody1");
+        while(eDiv.firstChild)
+        {
+        eDiv.removeChild(eDiv.firstChild);
+        }
+        }
+    }
+    function FetchAll(b_ranch) {
+        removeDiv(this);
+        firebase.database().ref('s_profiles/'+b_ranch).once('value', function(snapshot)  {
+            snapshot.forEach(
+                function(ChildSnapshot) {
+                    let name = ChildSnapshot.val().Name;
+                    let gen = ChildSnapshot.val().Gender;
+                    let depar = ChildSnapshot.val().DEP;
+                    let roll = ChildSnapshot.val().Roll;
+                    addItemsToList(name, gen, depar,roll)
+              });
+        });
+      }
+
+function search()
+{
+  var dep = document.getElementById('_branch_').value;
+  var roll = document.getElementById('sec').value;
+  firebase.database().ref('s_profiles/'+dep+'/'+roll).once('value',function(snapshot){
+    document.getElementById('Total').innerHTML = snapshot.val().bhanu;
+    document.getElementById('_1st').innerHTML = snapshot.val().first;
+    document.getElementById('_2nd').innerHTML = snapshot.val().second;
+    document.getElementById('_3rd').innerHTML = snapshot.val().third;
+    document.getElementById('_4th').innerHTML = snapshot.val().fouth;
+  }.catch(function(error){
+    alert("Data Not Found");
+  })
+  );
+}
+
+function send_Verification()
+{
+
+var user = firebase.auth().currentUser;
+
+user.sendEmailVerification().then(function(){
+  alert("Verify Email sent");
+}).catch(function(error){
+  alert("Error : "+ error.message );
+});
+}
+
+function changesign(){
+  var log = document.getElementById("login_div").style.display = "block";
+  if(log)
+  {
+    document.getElementById("login_div").style.display = "none";
+    document.getElementById("signup_div").style.display = "block";
+  }
+}
+
+function changelog(){
+  var log = document.getElementById("signup_div").style.display = "block";
+  if(log)
+  {
+    document.getElementById("login_div").style.display = "block";
+    document.getElementById("signup_div").style.display = "none";
+  }
+}
+
+function login(){
+  var userEmail = document.getElementById("email_field").value;
+  var userPass = document.getElementById("password_field").value;
+
+  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("Error : " + errorMessage);
+
+    // ...
+  });
+
+}
+function signup()
+{
+  var email = document.getElementById("email").value;
+  var pass = document.getElementById("password").value;
+  firebase.auth().createUserWithEmailAndPassword(email, pass)
+  .then((userCredential) => {
+    var user = 
+    document.getElementById("signup_div").style.display = "none";
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert("error: "+ errorMessage);
+  });
+}
+function logout(){
+  firebase.auth().signOut();
+  document.getElementById("web").style.display="none";
+  document.getElementById("login_div").style.display="block"; 
+  document.getElementById("Body").style.backgroundColor="rgb(111, 0, 255)";
+}
+
+  </script>
+      <script>
+        function home()
+        {
+          document.getElementById("Home").style.display="block";
+          document.getElementById("Branch").style.display="none";
+          document.getElementById("Notice").style.display="none";
+          document.getElementById("Fee").style.display="none";
+          document.getElementById("Location").style.display="none";
+        }
+        function branch()
+        {
+          document.getElementById("Home").style.display="none";
+          document.getElementById("Branch").style.display="block";
+          document.getElementById("Notice").style.display="none";
+          document.getElementById("Fee").style.display="none";
+          document.getElementById("Location").style.display="none";
+        }
+        function notice()
+        {
+          document.getElementById("Home").style.display="none";
+          document.getElementById("Branch").style.display="none";
+          document.getElementById("Notice").style.display="block";
+          document.getElementById("Fee").style.display="none";
+          document.getElementById("Location").style.display="none";
+        }
+        function fee()
+        {
+          document.getElementById("Home").style.display="none";
+          document.getElementById("Branch").style.display="none";
+          document.getElementById("Notice").style.display="none";
+          document.getElementById("Fee").style.display="block";
+          document.getElementById("Location").style.display="none";
+        }
+        function lo_c()
+        {
+          document.getElementById("Home").style.display="none";
+          document.getElementById("Branch").style.display="none";
+          document.getElementById("Notice").style.display="none";
+          document.getElementById("Fee").style.display="none";
+          document.getElementById("Location").style.display="block";
+        }
+  
+        function cse()
+        {
+          document.getElementById("cse").style.display="block";
+          document.getElementById("civil").style.display="none";
+          document.getElementById("mech").style.display="none";
+          document.getElementById("eee").style.display="none";
+          document.getElementById("ece").style.display="none";
+          FetchAll("cse");
+        }
+        function civil()
+        {
+          document.getElementById("cse").style.display="none";
+          document.getElementById("civil").style.display="block";
+          document.getElementById("mech").style.display="none";
+          document.getElementById("eee").style.display="none";
+          document.getElementById("ece").style.display="none";
+          FetchAll("civil");
+        }
+        function mech()
+        {
+          document.getElementById("cse").style.display="none";
+          document.getElementById("civil").style.display="none";
+          document.getElementById("mech").style.display="block";
+          document.getElementById("eee").style.display="none";
+          document.getElementById("ece").style.display="none";
+          FetchAll("mech");
+        }
+        function eee()
+        {
+          document.getElementById("cse").style.display="none";
+          document.getElementById("civil").style.display="none";
+          document.getElementById("mech").style.display="none";
+          document.getElementById("eee").style.display="block";
+          document.getElementById("ece").style.display="none";
+          FetchAll("eee");
+        }
+        function ece()
+        {
+          document.getElementById("cse").style.display="none";
+          document.getElementById("civil").style.display="none";
+          document.getElementById("mech").style.display="none";
+          document.getElementById("eee").style.display="none";
+          document.getElementById("ece").style.display="block";
+          FetchAll("ece");
+        }
+      </script>
+</body>
+</html>
